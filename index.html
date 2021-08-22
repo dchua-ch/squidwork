@@ -44,16 +44,18 @@
          -->
          <div class = "card-container">
              
-                     <div class ="card">
+                     <div class ="card" id = "chair-1-div">
                         <img src="./images/aliexpress_chair1.jpg" alt="">
                         <h3>Minion office chair</h3>
                         <p>A basic office chair for your minions. Comes in premium leather.</p>
-                        <p>Price: $69.99</p>
+                        <p>
+                            <span>Price: $</span><span>69.99</span>
+                        </p>
                         <div>
                             <label for="chair-1">Qty: </label>
                             <input  name="chair-1" id="chair-1" type= "number" value = "1"  min = "1" max = "10"><br>
                         </div>
-                        <button class = "add-to-cart" type= "button">Add to cart</button>
+                        <button class = "add-to-cart" type= "button" onclick = "addToCart('#chair-1-div')">Add to cart</button>
                      </div>
 
                      <div class ="card">
@@ -65,7 +67,7 @@
                             <label for="chair-2">Qty: </label>
                             <input  name="chair-2" id="chair-2" type= "number" value = "1"  min = "1" max = "10"><br>
                         </div>
-                        <button class = "add-to-cart" type= "button">Add to cart</button>
+                        <button class = "add-to-cart" type= "button" onclick= "">Add to cart</button>
                      </div>
 
                      <div class ="card">
@@ -154,9 +156,13 @@
         <h2>
             Checkout
         </h2>
+        <div id = "cart">
+
+        </div>
     </div>
 
     <script src="navigateContent.js"></script>
+    <script src= "shoppingCart.js"></script>
 
     
     
