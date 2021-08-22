@@ -120,6 +120,10 @@ body
 
 }
 
+.bold
+{
+    font-weight: bold;
+}
 
 /* @media screen and (min-width:600px)
 {
