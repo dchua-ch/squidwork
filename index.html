@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans&family=Palette+Mosaic&display=swap" rel="stylesheet"> 
+    <title>Assignment 8</title>
+</head>
+<body>
+    <header>
+    <div>
+        <ul id = "menu">
+            <li><img class = "logo" src="./logos/Squidwork-logos.jpeg" alt=""></li>
+            <li id = "home-button">Home</li>
+            <li id = "chairs-button">Chairs</li>
+            <li id = "desks-button">Desks</li>
+            <li id = "checkout-button">Checkout</li>
+        </ul>
+    </div>
+    </header>   
+
+    <div id = "home">
+        <h2>
+            Home
+        </h2>
+        <div>
+            <img id = "big-logo" src="./images/uneebo-office-design-UgYT5nkXdK4-unsplash.jpg" alt="">
+            <p>Welcome to Squidwork Ergonomics! You can find ergonomic chairs and desks at affordable prices here. </p>
+        </div>
+
+    </div>
+
+    <div id = "chairs">
+        <h2>
+            Ergonomic Chairs
+        </h2>
+        <!--
+            TODO:
+            Add cards with products
+         -->
+         <div class = "card-container">
+             
+                     <div class ="card">
+                        <img src="./images/aliexpress_chair1.jpg" alt="">
+                        <h3>Minion office chair</h3>
+                        <p>A basic office chair for your minions. Comes in premium leather.</p>
+                        <p>Price: $69.99</p>
+                        <div>
+                            <label for="chair-1">Qty: </label>
+                            <input  name="chair-1" id="chair-1" type= "number" value = "1"  min = "1" max = "10"><br>
+                        </div>
+                        <button class = "add-to-cart" type= "button">Add to cart</button>
+                     </div>
+
+                     <div class ="card">
+                        <img src="./images/aliexpress_chair2.png" alt="">
+                        <h3>Blue saddle chair</h3>
+                        <p>Pretend to be a cowboy/cowgirl while working in the office!</p>
+                        <p>Price: $89.99</p>
+                        <div>
+                            <label for="chair-2">Qty: </label>
+                            <input  name="chair-2" id="chair-2" type= "number" value = "1"  min = "1" max = "10"><br>
+                        </div>
+                        <button class = "add-to-cart" type= "button">Add to cart</button>
+                     </div>
+
+                     <div class ="card">
+                        <img src="./images/aliexpress_chair3.png" alt="">
+                        <h3>Red highback chair</h3>
+                        <p>Comfy highback mesh chair with adjustable tilt and height.</p>
+                        <p>Price: $109.99</p>
+                        <div>
+                            <label for="chair-3">Qty: </label>
+                            <input  name="chair-3" id="chair-3" type= "number" value = "1"  min = "1" max = "10"><br>
+                        </div>
+                        <button class = "add-to-cart" type= "button">Add to cart</button>
+                     </div>
+
+                     <div class ="card">
+                        <img src="./images/aliexpress_chair4.png" alt="">
+                        <h3>Rainbow gamer chair</h3>
+                        <p>Supremely comfortable full leather chair with RGB lighting.</p>
+                        <p>Price: $129.99</p>
+                        <div>
+                            <label for="chair-3">Qty: </label>
+                            <input  name="chair-3" id="chair-3" type= "number" value = "1"  min = "1" max = "10"><br>
+                        </div>
+                        <button class = "add-to-cart" type= "button">Add to cart</button>
+                     </div>
+         </div>
+
+
+    </div>
+
+    <div id = "desks">
+        <h2>
+            Premium Desks
+        </h2>
+        <div class = "card-container">
+            <div class ="card">
+                <img src="./images/aliexpress_table1.png" alt="">
+                <h3>Adjustable standing desk</h3>
+                <p>A height adjustable desk which can be used while sitting or standing.</p>
+                <p>Price: $349.99</p>
+                <div>
+                    <label for="table-1">Qty: </label>
+                    <input  name="table-1" id="table-1" type= "number" value = "1"  min = "1" max = "10"><br>
+                </div>
+                <button class = "add-to-cart" type= "button">Add to cart</button>
+             </div>
+             <div class ="card">
+                <img src="./images/aliexpress_table2.png" alt="">
+                <h3>Executive L-shaped desk</h3>
+                <p>A large L-shaped desk which is suitable for both paper and computing work.</p>
+                <p>Price: $789.99</p>
+                <div>
+                    <label for="table-2">Qty: </label>
+                    <input  name="table-2" id="table-2" type= "number" value = "1"  min = "1" max = "10"><br>
+                </div>
+                <button class = "add-to-cart" type= "button">Add to cart</button>
+             </div>
+             <div class ="card">
+                <img src="./images/aliexpress_table3.png" alt="">
+                <h3>Cosy bedside desk</h3>
+                <p>A compact, portable bedside desk on castors.</p>
+                <p>Price: $169.99</p>
+                <div>
+                    <label for="table-2">Qty: </label>
+                    <input  name="table-2" id="table-2" type= "number" value = "1"  min = "1" max = "10"><br>
+                </div>
+                <button class = "add-to-cart" type= "button">Add to cart</button>
+             </div>
+             <div class ="card">
+                <img src="./images/aliexpress_table4.png" alt="">
+                <h3>Easel folding desk</h3>
+                <p>Foldable desk which doubles as an easel. Highly suitable for creatives.</p>
+                <p>Price: $549.99</p>
+                <div>
+                    <label for="table-3">Qty: </label>
+                    <input  name="table-3" id="table-3" type= "number" value = "1"  min = "1" max = "10"><br>
+                </div>
+                <button class = "add-to-cart" type= "button">Add to cart</button>
+             </div>
+        </div>
+
+
+    </div>
+
+    <div id = "checkout">
+        <h2>
+            Checkout
+        </h2>
+    </div>
+
+    <script src="navigateContent.js"></script>
+
+    
+    
+</body>
+</html>

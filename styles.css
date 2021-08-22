@@ -1,0 +1,123 @@
+* {
+    /* Browser automatically gives all block elements margin and padding.
+    This resets margin and padding to 0.  */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body
+{
+    min-width: 720px;
+}
+
+header > h1
+{
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+    font-weight: 300;
+}
+
+.logo
+{
+    height: 10em;
+}
+
+body
+{
+    font-family: 'Open Sans', sans-serif;
+}
+
+#menu
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /* margin-bottom: 1.5em; */
+    background-color: #45cbb2;
+}
+
+#menu > li
+{
+    list-style: none;
+    font-size: 1.5em;
+}
+
+#big-logo
+{
+    width: min(85%, 1200px);
+    display: block;
+    margin: 2em auto;
+}
+#home
+{
+    /*
+        TODO: Write media query to
+        change flex direction
+        for desktop mode 
+     */
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#home > div
+{
+    display:flex;
+    flex-direction: column;
+    /* text-align: center; */
+}
+#home > div > p
+{
+    text-align: center;
+    /* margin: 0 auto; */
+    font-size: 1.5em;
+}
+
+#home, #chairs,#desks,#checkout
+{
+    padding: 2em;
+}
+.card-container
+{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card
+{
+    border: 2px solid black;
+    padding: 1em;
+    margin: 1em;
+    width:300px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card > img
+{
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height:300px;
+
+    /* Seems to be the correct option */
+    object-fit:contain;
+}
+
+.add-to-cart
+{
+    margin-top: 1em;
+
+}
+
+
+/* @media screen and (min-width:600px)
+{
+
+} */
