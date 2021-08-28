@@ -2,11 +2,12 @@
 // So we need this on top.
 class Product
 {
-    constructor(name,price,quantity)
+    constructor(name,price,quantity,imgSrc)
     {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
+        this.imgSrc = imgSrc;
     }
 }
 
@@ -23,7 +24,12 @@ class Cart
         this.totalPrice = 0;
         console.log(this.totalPrice);
         this.products.forEach(
-            product => {this.totalPrice += product.price * product.quantity;}
+            product => 
+            {
+                // adds new attribute subTotal to product object
+                product.subTotal = product.price * product.quantity;
+                this.totalPrice += product.subTotal;
+            }
 
         );
         console.log(this.totalPrice);
@@ -62,17 +68,20 @@ class Cart
         this.products.forEach(
             product =>
             {
-                renderThis += '<div> ';
-                renderThis += 'Name: ' + product.name;
-                renderThis += ' ';
-                renderThis += 'Price: ' + product.price;
-                renderThis += ' ';
-                renderThis += 'Quantity: ' + product.quantity;
+                console.log(product.imgSrc);
+                renderThis += '<div class = \"product-checkout\"> ';
+                renderThis += `<img src = \"${product.imgSrc}\">`
+                renderThis += '<p class = \"bold\">' + product.name + '</p>';
+                renderThis += '<p>Price: $' + product.price +'</p>';
+                renderThis += `<div><label for =\"\">Qty: </label><input type = "number" value = \"${product.quantity}\"> </div>`;
+                renderThis +=` <p> Subtotal: \$${product.subTotal.toFixed(2)} </p>`;
+                renderThis += '<button class = "delete-from-cart" type = "button">Delete</button>'
                 renderThis += '</div>'
             }
         )
-        renderThis += '<div>';
-        renderThis += 'Total: $' + this.totalPrice;
+        renderThis += '<div class = "total">';
+        renderThis += 'Total: $' + this.totalPrice.toFixed(2);
+        renderThis += '</div>'
         checkoutPage.innerHTML += renderThis;
     }
 
@@ -94,13 +103,16 @@ function addToCart(selector)
     let name = product.children[1].innerText;
     console.log(name);
 
-    let price = parseFloat(product.children[3].children[1].innerText);
+    let price = parseFloat(product.children[3].children[1].innerText).toFixed(2);
     console.log(price);
 
     let quantity = parseInt(product.children[4].children[1].value);
     console.log(quantity);
 
-    let newProduct = new Product(name,price,quantity);
+    let imgSrc = product.children[0].getAttribute("src");
+    console.log(imgSrc);
+
+    let newProduct = new Product(name,price,quantity, imgSrc);
     // myCart.products.push(newProduct);
     myCart.addProduct(newProduct);
     console.log(myCart);
