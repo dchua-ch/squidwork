@@ -69,13 +69,13 @@ class Cart
             product =>
             {
                 console.log(product.imgSrc);
-                renderThis += '<div class = \"product-checkout\"> ';
+                renderThis += `<div class = \"product-checkout\" id = \"checkout-${product.name.replaceAll(" ","-")}\"> `;
                 renderThis += `<img src = \"${product.imgSrc}\">`
                 renderThis += '<p class = \"bold\">' + product.name + '</p>';
                 renderThis += '<p>Price: $' + product.price +'</p>';
-                renderThis += `<div><label for =\"\">Qty: </label><input type = "number" value = \"${product.quantity}\"> </div>`;
+                renderThis += `<div><label for =\"\">Qty: </label><input type = "number" value = \"${product.quantity}\" min = "1"> </div>`;
                 renderThis +=` <p> Subtotal: \$${product.subTotal.toFixed(2)} </p>`;
-                renderThis += '<button class = "delete-from-cart" type = "button">Delete</button>'
+                renderThis += `<button class = "delete-from-cart" type = "button" onclick = \"deleteFromCart(\'#checkout-${product.name.replaceAll(" ","-")}\')\">Delete</button>`
                 renderThis += '</div>'
             }
         )
@@ -119,6 +119,32 @@ function addToCart(selector)
     alert(`${quantity}x \"${name}\" was added to cart!`);
     myCart.render();
     return;
+}
+
+function deleteFromCart(selector)
+{
+    let product = document.querySelector(selector);
+    console.log(product);
+
+    let name = product.children[1].innerText;
+    console.log(name);
+
+    if(confirm(`Are you sure you would like to delete ${name} from cart`))
+    {
+        myCart.products.forEach( (product,index) =>
+            {
+                if(product.name == name)
+                {
+                    myCart.products.splice(index,1,);
+                }
+            }
+
+        );
+   
+        myCart.render();
+        alert(`${name} was deleted from cart`);
+    }
+
 }
 
 
