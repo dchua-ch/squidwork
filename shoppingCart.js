@@ -73,7 +73,7 @@ class Cart
                 renderThis += `<img src = \"${product.imgSrc}\">`
                 renderThis += '<p class = \"bold\">' + product.name + '</p>';
                 renderThis += '<p>Price: $' + product.price +'</p>';
-                renderThis += `<div><label for =\"\">Qty: </label><input type = "number" value = \"${product.quantity}\" min = "1" onclick = \"alert('meow')\"> </div>`;
+                renderThis += `<p>Qty: ${product.quantity}</p>`
                 renderThis +=` <p> Subtotal: \$${product.subTotal.toFixed(2)} </p>`;
                 renderThis += `<button class = "update-quantity" type = "button" onclick = \"updateQuantity(\'#checkout-${product.name.replaceAll(" ","-")}\')\">Update Quantity</button>`
                 renderThis += `<button class = "delete-from-cart" type = "button" onclick = \"deleteFromCart(\'#checkout-${product.name.replaceAll(" ","-")}\')\">Delete</button>`
@@ -149,36 +149,45 @@ function deleteFromCart(selector)
 
 function updateQuantity(selector)
 {
-    let newQuantity = parseInt(prompt('Please enter the new quantity: '));
-    console.log(newQuantity);
-
-    if(isNaN(newQuantity))
+    let userInput = prompt('Please enter the new quantity: ');
+    if (userInput != null && userInput != '')
     {
-        alert("Invalid Quantity. Update quantity aborted.");
-    }
-    else if( newQuantity == 0)
-    {
-        deleteFromCart(selector);
-    }
-    else
-    {
-        let product = document.querySelector(selector);
-        console.log(product);
-
-        let name = product.children[1].innerText;
-        console.log(name);
-
-        myCart.products.forEach(
-            product =>
-            {
-                if(product.name == name)
+        let newQuantity = parseInt(userInput);
+        console.log(newQuantity);
+        if(isNaN(newQuantity))
+        {
+            alert("Invalid Quantity. Update quantity aborted.");
+        }
+        else if( newQuantity == 0)
+        {
+            deleteFromCart(selector);
+        }
+        else
+        {
+            let product = document.querySelector(selector);
+            console.log(product);
+    
+            let name = product.children[1].innerText;
+            console.log(name);
+    
+            myCart.products.forEach(
+                product =>
                 {
-                    product.quantity = newQuantity;
+                    if(product.name == name)
+                    {
+                        product.quantity = newQuantity;
+                    }
                 }
-            }
-        )
+            )
+    
+            myCart.render();
+        
+        
+    }
 
-        myCart.render();
+    
+
+   
 
 
     }
