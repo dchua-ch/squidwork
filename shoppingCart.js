@@ -80,11 +80,15 @@ class Cart
                 renderThis += '</div>'
             }
         )
-        renderThis += '<div class = "total">';
-        renderThis += 'Total: $' + this.totalPrice.toFixed(2);
-        renderThis += '</div>'
+        // renderThis += '<div id = "total">';
+        // renderThis += 'Total: $' + this.totalPrice.toFixed(2);
+        // renderThis += '</div>'
         checkoutPage.innerHTML += renderThis;
+        let totalDiv = document.querySelector('#total');
+        totalDiv.innerText =  'Total: $' + this.totalPrice.toFixed(2);
     }
+    
+
 
 }
 

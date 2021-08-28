@@ -164,13 +164,38 @@ body
     text-align: center;
 }
 
-.total
+#total
 {
     font-weight: bold;
     text-align: center;
     font-size: 2em;
 }
-/* @media screen and (min-width:600px)
+@media screen and (max-width:1500px)
 {
-
-} */
+    #cart
+    {
+        flex-direction: row;
+        flex-wrap:wrap;
+        justify-content: space-evenly;
+    }
+    .product-checkout
+    {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        height: auto;
+    }
+    .product-checkout > img
+    {
+        width:auto;
+        height: 200px;
+        width: 300px;
+        /* object-fit: cover;
+        height: 100%;
+        width: 100%; */
+    }
+    .product-checkout > *
+    {
+        margin: 0.5em;
+    }
+}
