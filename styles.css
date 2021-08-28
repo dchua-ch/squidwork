@@ -5,7 +5,9 @@
     padding: 0;
     box-sizing: border-box;
   }
-
+:root{
+    --font-size: 1.0em;
+}
 body
 {
     /* min-width: 720px; */
@@ -97,7 +99,7 @@ header > h1
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-size: 1.3em;
+    font-size: var(--font-size);
 }
 .card > h3,p,div,button
 {
@@ -145,7 +147,7 @@ header > h1
     padding: 0.5em;
     margin: 1em;
     flex-wrap:wrap;
-    font-size: 1.3em;
+    font-size: var(--font-size);
 }
 .product-checkout > img
 {
