@@ -148,7 +148,7 @@ Weird. */
     height: 200px;
     justify-content: space-around;
     align-items: center;
-    border: 1px solid black;
+    border: 2px solid black;
     padding: 0.5em;
     margin: 1em;
     flex-wrap:wrap;
