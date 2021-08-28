@@ -11,6 +11,7 @@ body
     /* min-width: 720px; */
     height: 100vh;
     width: 100vw;
+    font-family: 'Open Sans', sans-serif;
 }
 
 header > h1
@@ -23,11 +24,6 @@ header > h1
 .logo
 {
     height: 10em;
-}
-
-body
-{
-    font-family: 'Open Sans', sans-serif;
 }
 
 #menu
@@ -200,8 +196,8 @@ body
         height: 100%;
         width: 100%; */
     }
-    .product-checkout > *
+    /* .product-checkout > *
     {
         margin: 0.5em;
-    }
+    } */
 }
