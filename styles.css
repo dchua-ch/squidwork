@@ -143,6 +143,7 @@ body
     padding: 0.5em;
     margin: 1em;
     flex-wrap:wrap;
+    font-size: 1.5em;
 }
 .product-checkout > img
 {
@@ -154,6 +155,8 @@ body
 .product-checkout > button
 {
     display: block;
+    font-size: 1.0em;
+    padding: 0.5em;
 }
 
 .center-text
