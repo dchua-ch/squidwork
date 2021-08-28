@@ -73,8 +73,9 @@ class Cart
                 renderThis += `<img src = \"${product.imgSrc}\">`
                 renderThis += '<p class = \"bold\">' + product.name + '</p>';
                 renderThis += '<p>Price: $' + product.price +'</p>';
-                renderThis += `<div><label for =\"\">Qty: </label><input type = "number" value = \"${product.quantity}\" min = "1"> </div>`;
+                renderThis += `<div><label for =\"\">Qty: </label><input type = "number" value = \"${product.quantity}\" min = "1" onclick = \"alert('meow')\"> </div>`;
                 renderThis +=` <p> Subtotal: \$${product.subTotal.toFixed(2)} </p>`;
+                renderThis += `<button class = "update-quantity" type = "button" onclick = \"updateQuantity(\'#checkout-${product.name.replaceAll(" ","-")}\')\">Update Quantity</button>`
                 renderThis += `<button class = "delete-from-cart" type = "button" onclick = \"deleteFromCart(\'#checkout-${product.name.replaceAll(" ","-")}\')\">Delete</button>`
                 renderThis += '</div>'
             }
@@ -129,7 +130,7 @@ function deleteFromCart(selector)
     let name = product.children[1].innerText;
     console.log(name);
 
-    if(confirm(`Are you sure you would like to delete ${name} from cart`))
+    if(confirm(`Are you sure you would like to delete ${name} from cart?`))
     {
         myCart.products.forEach( (product,index) =>
             {
@@ -142,11 +143,47 @@ function deleteFromCart(selector)
         );
    
         myCart.render();
-        alert(`${name} was deleted from cart`);
     }
 
 }
 
+function updateQuantity(selector)
+{
+    let newQuantity = parseInt(prompt('Please enter the new quantity: '));
+    console.log(newQuantity);
+
+    if(isNaN(newQuantity))
+    {
+        alert("Invalid Quantity. Update quantity aborted.");
+    }
+    else if( newQuantity == 0)
+    {
+        deleteFromCart(selector);
+    }
+    else
+    {
+        let product = document.querySelector(selector);
+        console.log(product);
+
+        let name = product.children[1].innerText;
+        console.log(name);
+
+        myCart.products.forEach(
+            product =>
+            {
+                if(product.name == name)
+                {
+                    product.quantity = newQuantity;
+                }
+            }
+        )
+
+        myCart.render();
+
+
+    }
+    
+}
 
 
 
