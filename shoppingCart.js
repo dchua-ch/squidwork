@@ -30,6 +30,27 @@ class Cart
 
     }
 
+    addProduct(newProduct)
+    {
+        let productExists = false;
+        this.products.forEach(
+            product => 
+            {
+                if (product.name == newProduct.name)
+                {
+                    productExists = true;
+                    product.quantity += newProduct.quantity;
+                    return;// I think this is just ending execution of function within forEach
+                }
+            }
+
+        );
+        if(!productExists)
+        {
+            this.products.push(newProduct);
+        }
+    }
+
     render()
     {
         let checkoutPage = document.querySelector("#cart");
@@ -76,12 +97,14 @@ function addToCart(selector)
     let price = parseFloat(product.children[3].children[1].innerText);
     console.log(price);
 
-    let quantity = product.children[4].children[1].value;
+    let quantity = parseInt(product.children[4].children[1].value);
     console.log(quantity);
 
     let newProduct = new Product(name,price,quantity);
-    myCart.products.push(newProduct);
+    // myCart.products.push(newProduct);
+    myCart.addProduct(newProduct);
     console.log(myCart);
+    alert(`${quantity}x \"${name}\" was added to cart!`);
     myCart.render();
     return;
 }
