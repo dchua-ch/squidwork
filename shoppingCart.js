@@ -64,7 +64,12 @@ class Cart
         this.calculateTotal();
         //clear cart div first
         checkoutPage.innerHTML = renderThis;
-
+        if (this.products.length == 0)
+        {
+            renderThis = " <div class = \"product-checkout\"> Currently Empty. Try adding something to cart! :D </div>";
+        }
+        else
+        {
         this.products.forEach(
             product =>
             {
@@ -80,9 +85,8 @@ class Cart
                 renderThis += '</div>'
             }
         )
-        // renderThis += '<div id = "total">';
-        // renderThis += 'Total: $' + this.totalPrice.toFixed(2);
-        // renderThis += '</div>'
+        }
+
         checkoutPage.innerHTML += renderThis;
         let totalDiv = document.querySelector('#total');
         totalDiv.innerText =  'Total: $' + this.totalPrice.toFixed(2);
@@ -187,15 +191,8 @@ function updateQuantity(selector)
             myCart.render();
         
         
+        }
     }
-
-    
-
-   
-
-
-    }
-    
 }
 
 
