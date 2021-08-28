@@ -22,7 +22,6 @@ class Cart
     calculateTotal()
     {
         this.totalPrice = 0;
-        console.log(this.totalPrice);
         this.products.forEach(
             product => 
             {
@@ -32,7 +31,6 @@ class Cart
             }
 
         );
-        console.log(this.totalPrice);
 
     }
 
@@ -73,7 +71,6 @@ class Cart
         this.products.forEach(
             product =>
             {
-                console.log(product.imgSrc);
                 renderThis += `<div class = \"product-checkout\" id = \"checkout-${product.name.replaceAll(" ","-")}\"> `;
                 renderThis += `<img src = \"${product.imgSrc}\">`
                 renderThis += '<p class = \"bold\">' + product.name + '</p>';
@@ -103,28 +100,20 @@ let myCart = new Cart;
 
 function addToCart(selector)
 {
-    console.log(selector);
     // selector is a string.
     let product = document.querySelector(selector);
-    console.log(product);
 
 
     let name = product.children[1].innerText;
-    console.log(name);
 
     let price = parseFloat(product.children[3].children[1].innerText).toFixed(2);
-    console.log(price);
 
     let quantity = parseInt(product.children[4].children[1].value);
-    console.log(quantity);
 
     let imgSrc = product.children[0].getAttribute("src");
-    console.log(imgSrc);
 
     let newProduct = new Product(name,price,quantity, imgSrc);
-    // myCart.products.push(newProduct);
     myCart.addProduct(newProduct);
-    console.log(myCart);
     alert(`${quantity}x \"${name}\" was added to cart!`);
     myCart.render();
     return;
@@ -133,10 +122,8 @@ function addToCart(selector)
 function deleteFromCart(selector)
 {
     let product = document.querySelector(selector);
-    console.log(product);
 
     let name = product.children[1].innerText;
-    console.log(name);
 
     if(confirm(`Are you sure you would like to delete ${name} from cart?`))
     {
@@ -161,7 +148,6 @@ function updateQuantity(selector)
     if (userInput != null && userInput != '')
     {
         let newQuantity = parseInt(userInput);
-        console.log(newQuantity);
         if(isNaN(newQuantity))
         {
             alert("Invalid Quantity. Update quantity aborted.");
@@ -173,10 +159,8 @@ function updateQuantity(selector)
         else
         {
             let product = document.querySelector(selector);
-            console.log(product);
     
             let name = product.children[1].innerText;
-            console.log(name);
     
             myCart.products.forEach(
                 product =>
