@@ -193,6 +193,7 @@ Weird. */
         flex-wrap: nowrap;
         justify-content: space-around;
         height: auto;
+        width: 300px;
     }
     .product-checkout > img
     {
